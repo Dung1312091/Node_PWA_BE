@@ -1,19 +1,19 @@
-
 let userService = require("./service");
-const addUser =  async(req, res) => {
+const addUser = async (req, res) => {
     try {
         const body = req.body;
-       let data = await userService.addUser(body);
+        console.log("body==>", body);
+        let data = await userService.addUser(body);
         res.json({
             success: true,
             message: "create user success"
         })
     } catch (error) {
-        console.log("error==>",error)
+        console.log("error==>", error)
     }
 }
 
-const getUsers =  async(req, res) => {
+const getUsers = async (req, res) => {
     try {
         let users = await userService.getUser();
         res.json({
@@ -22,7 +22,7 @@ const getUsers =  async(req, res) => {
             data: users
         })
     } catch (error) {
-        console.log("error==>",error)
+        console.log("error==>", error)
     }
 }
 module.exports = {
